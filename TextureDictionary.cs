@@ -45,7 +45,7 @@ public class TextureDictionary : ConcurrentDictionary<int, TextureWrap>, IDispos
 
     public new bool TryGetValue(int k, out TextureWrap tex)
     {
-        if (!IsEmptying) return base.TryGetValue(k, out tex) && (tex == null || tex.ImGuiHandle != IntPtr.Zero) || LoadTexture(k, out tex);
+        if (!IsEmptying) return base.TryGetValue(k, out tex) && (tex == null || tex.ImGuiHandle != nint.Zero) || LoadTexture(k, out tex);
         tex = null;
         return false;
     }
@@ -87,7 +87,6 @@ public class TextureDictionary : ConcurrentDictionary<int, TextureWrap>, IDispos
             ClientLanguage.English => "en/",
             ClientLanguage.German => "de/",
             ClientLanguage.French => "fr/",
-            ClientLanguage.Korean => "ko/",
             _ => "en/"
         };
 
